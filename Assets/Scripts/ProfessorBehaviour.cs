@@ -17,8 +17,6 @@ public class ProfessorBehaviour : MonoBehaviour
 
     public Sprite notWatchingSprite;
 
-    private float timer;
-
     private bool isWatching;
 
     private SpriteRenderer spriteRenderer;
@@ -28,7 +26,6 @@ public class ProfessorBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timer = 0;
         isWatching = true;
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = this.watchingSprite;
@@ -38,22 +35,17 @@ public class ProfessorBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer  += Time.deltaTime;
-        if(isTimeToChangeStance()) {
-            changeStance();
-        }
         if(isWatching) {
             watch();
         }
     }
 
-    private bool isTimeToChangeStance() {
+    public bool isTimeToChangeStance(float timer) {
         float duration = isWatching ? watchingTime : notWatchingTime;
-        return this.timer >= duration;
+        return timer >= duration;
     }
 
-    private void changeStance() {
-        timer = 0;
+    public void changeStance() {
         isWatching = !isWatching;
         if(isWatching) {
             watchStance();
