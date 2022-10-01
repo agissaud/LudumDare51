@@ -21,6 +21,9 @@ public class DialogManager : MonoBehaviour
     public GameObject Prefab;
     public GameObject Father;
 
+    public float writingTime;
+    private float timer;
+
     public Item a;
     public Item b;
 
@@ -49,10 +52,16 @@ public class DialogManager : MonoBehaviour
             }
             else if (currentLength < messageLength)
             {
-                GameObject newIcon = Instantiate(Prefab, Father.transform.position, Father.transform.rotation); // TODO coords
-                newIcon.transform.parent = Father.transform;
-                newIcon.GetComponent<Image>().sprite = dialogToDisplay.symbols[currentLength].sprite;
-                currentLength += 1;
+                if (timer < writingTime)
+                {
+                    // Wait before writing
+                    timer += Time.deltaTime;
+                }
+                else
+                {
+                    // Write a new icon
+                    WriteAnImage();
+                }
             }
         }
     }
@@ -64,6 +73,8 @@ public class DialogManager : MonoBehaviour
         currentLength = 0;
         messageLength = dialog.symbols.Count;
         dialogToDisplay = dialog;
+
+        WriteAnImage();
 
         state = true;
     }
@@ -79,6 +90,15 @@ public class DialogManager : MonoBehaviour
             GameObject.Destroy(child.gameObject);
         }
         Debug.Log("Pressed primary button.");
+    }
+
+    void WriteAnImage()
+    {
+        GameObject newIcon = Instantiate(Prefab, Father.transform.position, Father.transform.rotation); // TODO coords
+        newIcon.transform.parent = Father.transform;
+        newIcon.GetComponent<Image>().sprite = dialogToDisplay.symbols[currentLength].sprite;
+        currentLength += 1;
+        timer = 0.0f;
     }
 }
 
