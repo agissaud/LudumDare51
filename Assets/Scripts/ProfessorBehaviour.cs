@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ProfessorBehaviour : MonoBehaviour
 {
@@ -65,8 +66,9 @@ public class ProfessorBehaviour : MonoBehaviour
     private void gameOver() {
         Debug.Log("HEY WHAT ARE YOU DOING STEP STUDENT ?");
         // TODO : FINIR LE JEU
-        if(isGameOverActivated) {
+        if(!isGameOverActivated) {
             // gameOver()
+            // SceneManager.LoadScene("SceneAgissaud");
             isGameOverActivated = true;
         }
     }
