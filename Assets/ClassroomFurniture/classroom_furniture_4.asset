@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9270889a35a0bb94bbd8a9f914d03198, type: 3}
-  m_Name: classroom_furniture_0
+  m_Name: classroom_furniture_4
   m_EditorClassIdentifier: 
-  Sprite: {fileID: -1776867045, guid: 6c992351323a8fd47a0c26c0cb8b09d8, type: 3}
-  Prefab: {fileID: 4976206547484622154, guid: 99796b485d86f564896e706db2bf90ba, type: 3}
+  Sprite: {fileID: -1539057713, guid: 6c992351323a8fd47a0c26c0cb8b09d8, type: 3}
+  Prefab: {fileID: 0}
   Rotation: {x: 0, y: 0, z: 0}
