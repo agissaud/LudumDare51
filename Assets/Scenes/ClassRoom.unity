@@ -318,6 +318,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7559258126077497494, guid: d77d18f840ff92e4094820e97beb220a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d77d18f840ff92e4094820e97beb220a, type: 3}
 --- !u!1001 &4081881432399682874
@@ -327,6 +331,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 578603617390059517, guid: 46b5ffc13c9450e428d29a8ce371e84f, type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 578603617390059517, guid: 46b5ffc13c9450e428d29a8ce371e84f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -964499802, guid: 7abf35d3c32aaa74eb43e3110fa2da8d, type: 3}
+    - target: {fileID: 578603617390059517, guid: 46b5ffc13c9450e428d29a8ce371e84f, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4081881431547594628, guid: 46b5ffc13c9450e428d29a8ce371e84f, type: 3}
       propertyPath: m_RootOrder
       value: 1

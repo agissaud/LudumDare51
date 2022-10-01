@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using System;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -15,11 +16,17 @@ public class PlayerMovement : MonoBehaviour
 
     private PlayerInteraction playerInteractionScript;
 
+    private Animator animator;
+
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         playerInteractionScript = GetComponent<PlayerInteraction>();
         isMoving = false;
+        animator = GetComponentInChildren<Animator>();
+        setIsMoving(false);
+        animator.SetBool("isSitted", true);
+        animator.SetInteger("direction", 0);
         if (goal is not null) {
             moveToDestionation(goal);
         } 
@@ -34,13 +41,31 @@ public class PlayerMovement : MonoBehaviour
     {
         if(isMoving) {
             detectArrival();
+            updateDirection();
         }
     }
 
     public void moveToDestionation(Interactable goal) {
         this.goal = goal;
         navMeshAgent.destination = goal.transform.position;
-        isMoving = true;
+        setIsMoving(true);
+        animator.SetBool("isSitted", false);;
+    }
+
+    private void updateDirection() {
+        Vector3 velocity = navMeshAgent.velocity.normalized;
+        float absX = Math.Abs(velocity.x);
+        float absZ = Math.Abs(velocity.z);
+        // Horizontal
+        if(absX > absZ) {
+            // 1 = Right, 3 = Left
+            animator.SetInteger("direction", velocity.x >= 0 ? 1 : 3);
+        }
+        // Vertical
+        else {
+            // 0 = Up, 2 = Down
+            animator.SetInteger("direction",velocity.z >= 0 ? 0 : 2);
+        }
     }
 
     private void detectArrival() {
@@ -52,7 +77,16 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void onArrival() {
-        isMoving = false;
+        setIsMoving(false);
         playerInteractionScript.OnNavidationTargetReached(this.goal);
+    }
+
+    public void sit() {
+        animator.SetBool("isSitted", true);
+    }
+
+    private void setIsMoving(bool value) {
+        animator.SetBool("isMoving", value);
+        isMoving = value;
     }
 }
