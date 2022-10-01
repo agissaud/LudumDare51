@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: classroom_fourniture_0
+      name: classroom_furniture_0
       rect:
         serializedVersion: 2
         x: 16
@@ -138,7 +138,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: classroom_fourniture_1
+      name: classroom_furniture_1
       rect:
         serializedVersion: 2
         x: 32
@@ -159,7 +159,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: classroom_fourniture_2
+      name: classroom_furniture_2
       rect:
         serializedVersion: 2
         x: 48
@@ -180,7 +180,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: classroom_fourniture_3
+      name: classroom_furniture_3
       rect:
         serializedVersion: 2
         x: 64
@@ -201,7 +201,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: classroom_fourniture_4
+      name: classroom_furniture_4
       rect:
         serializedVersion: 2
         x: 17
@@ -222,7 +222,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: classroom_fourniture_5
+      name: classroom_furniture_5
       rect:
         serializedVersion: 2
         x: 1
@@ -243,7 +243,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: classroom_fourniture_6
+      name: classroom_furniture_6
       rect:
         serializedVersion: 2
         x: 82
@@ -264,7 +264,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: classroom_fourniture_8
+      name: classroom_furniture_8
       rect:
         serializedVersion: 2
         x: 210
@@ -285,7 +285,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: classroom_fourniture_9
+      name: classroom_furniture_9
       rect:
         serializedVersion: 2
         x: 209
@@ -306,7 +306,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: classroom_furniture_0
+      name: classroom_furniture_10
       rect:
         serializedVersion: 2
         x: 35
@@ -327,7 +327,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: classroom_furniture_1
+      name: classroom_furniture_11
       rect:
         serializedVersion: 2
         x: 167
@@ -359,18 +359,18 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       classroom_fourniture_7: -816548875
-      classroom_furniture_0: -1668655670
-      classroom_fourniture_5: 1126315051
-      classroom_fourniture_3: 1632502737
-      classroom_fourniture_8: -1695947425
-      classroom_furniture_1: -886903146
-      classroom_fourniture_2: 1861055920
-      classroom_fourniture_6: 881663005
-      classroom_fourniture_4: -1539057713
-      classroom_fourniture_0: -1776867045
-      classroom_fourniture_10: 1283828672
-      classroom_fourniture_9: 584589723
-      classroom_fourniture_1: 1419980170
+      classroom_furniture_0: 1126315051
+      classroom_furniture_11: 385161535
+      classroom_furniture_10: 584589723
+      classroom_furniture_3: 1861055920
+      classroom_furniture_1: -1776867045
+      classroom_furniture_5: -1539057713
+      classroom_furniture_2: 1419980170
+      classroom_furniture_4: -1695947425
+      classroom_fourniture_10: -886903146
+      classroom_furniture_8: -1695947425
+      classroom_furniture_9: 881663005
+      classroom_furniture_6: 1632502737
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
