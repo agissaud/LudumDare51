@@ -16,18 +16,20 @@ public class ShowQuestList : MonoBehaviour
     void Start()
     {
         questListObject = GameObject.Find("QuestList"); 
-        if (questListObject != null) {
+        if (questListObject != null) 
+        {
             Debug.Log("hehe");
         }
 
         questions = new GameObject[questList.Length];
         float questionsSize = 100 / questList.Length;
 
-        for(int i = 0; i < questions.Length; i++) {
+        for(int i = 0; i < questions.Length; i++) 
+        {
             GameObject question = Instantiate(QuestPrefab, questListObject.transform);
             question.name = "Q"+i;
             RectTransform questionTransform = question.GetComponent<RectTransform>();
-            question.GetComponent<TextMeshProUGUI>().SetText("Question n°" + (i+1) + ": " + questList[i]);
+            questionTransform.Find("Content").gameObject.GetComponent<TextMeshProUGUI>().SetText("Question n°" + (i+1) + ": " + questList[i]);
             questions[i] = question;
         }
     }
@@ -36,5 +38,10 @@ public class ShowQuestList : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void TaskCleared(int taskNumber) 
+    {
+        questions[taskNumber].GetComponent<RectTransform>().Find("Checkmark").gameObject.SetActive(true);
     }
 }
