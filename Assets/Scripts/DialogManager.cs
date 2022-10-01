@@ -7,6 +7,7 @@ using System;
 
 public class DialogManager : MonoBehaviour
 {
+    public static DialogManager Instance { get; private set; }
     // false = no pop up, true = pop up on
     private bool state = false;
 
@@ -29,9 +30,15 @@ public class DialogManager : MonoBehaviour
     public Item a;
     public Item b;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        this.gameObject.SetActive(false);
         //PopUp(txtToDisplay);
         //Dialog d = new Dialog();
         //List<Item> symbols = new List<Item>();
@@ -68,7 +75,7 @@ public class DialogManager : MonoBehaviour
         }
     }
 
-    void PopUp(Dialog dialog)
+    public void PopUp(Dialog dialog)
     {
         this.gameObject.SetActive(true);
 
