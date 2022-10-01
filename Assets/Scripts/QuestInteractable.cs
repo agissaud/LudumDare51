@@ -1,19 +1,12 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(Interactable))]
-public class QuestInteractable : MonoBehaviour
+public class QuestInteractable : Interactable
 {
     public ObjectType targetType;
-    public string defaultDialog;
+    public Dialog defaultDialog;
     public QuestPartInstance availableQuest = null;
 
-    void Reset()
-    {
-        GetComponent<Interactable>().OnInteractionStarted.RemoveListener(OnInteraction);
-        GetComponent<Interactable>().OnInteractionStarted.AddListener(OnInteraction);
-    }
-
-    private void OnInteraction()
+    public override void OnPlayerStartInteraction()
     {
         if (this.availableQuest != null && this.availableQuest.Active)
         {

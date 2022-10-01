@@ -11,21 +11,25 @@ public class QuestManager : MonoBehaviour
 
     void Start()
     {
-        QuestInteractable[] targets = GetComponentsInChildren<QuestInteractable>();
-
-        Dictionary<ObjectType, List<QuestInteractable>> targetPerType = targets.GroupBy(qi => qi.targetType).ToDictionary(g => g.Key, g => g.ToList());
-
-        foreach (Quest q in questDatas.quests)
+        if (questInstances == null)
         {
-            QuestInstance qi = new QuestInstance(q);
-            questInstances.Add(qi);
-            for (int i = 0; i < q.parts.Count; i++)
+            questInstances = new List<QuestInstance>();
+            QuestInteractable[] targets = GetComponentsInChildren<QuestInteractable>();
+
+            Dictionary<ObjectType, List<QuestInteractable>> targetPerType = targets.GroupBy(qi => qi.targetType).ToDictionary(g => g.Key, g => g.ToList());
+
+            foreach (Quest q in questDatas.quests)
             {
-                QuestPart qp = q.parts[i];
-                List<QuestInteractable> validTargets = targetPerType[qp.targetType];
-                int chosen = Random.Range(0, validTargets.Count);
-                validTargets[chosen].availableQuest = new QuestPartInstance(qi, i);
-                validTargets.RemoveAt(chosen);
+                QuestInstance qi = new QuestInstance(q);
+                questInstances.Add(qi);
+                for (int i = 0; i < q.parts.Count; i++)
+                {
+                    QuestPart qp = q.parts[i];
+                    List<QuestInteractable> validTargets = targetPerType[qp.targetType];
+                    int chosen = Random.Range(0, validTargets.Count);
+                    validTargets[chosen].availableQuest = new QuestPartInstance(qi, i);
+                    validTargets.RemoveAt(chosen);
+                }
             }
         }
     }
