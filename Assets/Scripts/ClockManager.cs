@@ -7,8 +7,9 @@ public class ClockManager : MonoBehaviour
 {
     public float timer = 300.0f;
     public ProfessorBehaviour professor;
-    private float standBy = 0.0f;
+    private float watching = 0.0f;
     private bool wait = false;
+    private bool isWatching = true;
     private TextMeshPro textTimer;
 
     // Start is called before the first frame update
@@ -21,27 +22,36 @@ public class ClockManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        if(wait && ((int)timer) % ((int)professor.watchingTime) == 0 && standBy <= professor.notWatchingTime) 
+        if(wait && ((int)timer) % ((int)professor.notWatchingTime) == 0 && watching <= professor.watchingTime) 
         {
-            standBy += Time.deltaTime;
+            watching += Time.deltaTime;
+            if (!isWatching) 
+            {
+                professor.changeStance();
+                isWatching = true;
+            }
         } else {
-            if(((int)timer) % ((int)professor.watchingTime) != 0) {
-                if (!wait) 
-                {
-                    professor.changeStance();
-                }
+            if (isWatching) 
+            {
+                professor.changeStance();
+                isWatching = false;
+            }
+
+            if(((int)timer) % ((int)professor.notWatchingTime) != 0) {
                 wait = true;
-            } else {
-                if (wait) 
-                {
-                    professor.changeStance();
-                }
+            } else {                
                 wait = false;
             }
-            standBy = 0.0f;
+            watching = 0.0f;
             timer -= Time.deltaTime;
         }
+
         DisplayTime();
+
+        if (timer <= 0.0f) 
+        {
+            Exterminate();
+        }
     }
 
     void DisplayTime()
