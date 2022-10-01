@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     private NavMeshAgent navMeshAgent;
 
-    private bool isMoving;
+    public bool isMoving {get; private set;}
 
     private PlayerInteraction playerInteractionScript;
 
@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     void Update() {
 
     }
-    
+
     void FixedUpdate()
     {
         if(isMoving) {
