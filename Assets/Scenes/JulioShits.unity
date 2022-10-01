@@ -3005,6 +3005,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 300
+  professor: {fileID: 0}
 --- !u!114 &1168508371
 MonoBehaviour:
   m_ObjectHideFlags: 0
