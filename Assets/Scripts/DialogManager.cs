@@ -24,6 +24,8 @@ public class DialogManager : MonoBehaviour
     public float writingTime;
     private float timer;
 
+    private List<Image> images;
+
     public Item a;
     public Item b;
 
@@ -31,14 +33,14 @@ public class DialogManager : MonoBehaviour
     void Start()
     {
         //PopUp(txtToDisplay);
-        Dialog d = new Dialog();
-        List<Item> symbols = new List<Item>();
-        symbols.Add(a);
-        symbols.Add(b);
-        symbols.Add(b);
-        symbols.Add(b);
-        d.symbols = symbols;
-        PopUp(d);
+        //Dialog d = new Dialog();
+        //List<Item> symbols = new List<Item>();
+        //symbols.Add(a);
+        //symbols.Add(b);
+        //symbols.Add(b);
+        //symbols.Add(b);
+        //d.symbols = symbols;
+        //PopUp(d);
     }
 
     // Update is called once per frame
@@ -60,7 +62,7 @@ public class DialogManager : MonoBehaviour
                 else
                 {
                     // Write a new icon
-                    WriteAnImage();
+                    DisplayNewImage();
                 }
             }
         }
@@ -74,7 +76,9 @@ public class DialogManager : MonoBehaviour
         messageLength = dialog.symbols.Count;
         dialogToDisplay = dialog;
 
-        WriteAnImage();
+        images = new List<Image>();
+
+        WriteImages();
 
         state = true;
     }
@@ -92,11 +96,27 @@ public class DialogManager : MonoBehaviour
         Debug.Log("Pressed primary button.");
     }
 
-    void WriteAnImage()
+    void WriteImages()
     {
-        GameObject newIcon = Instantiate(Prefab, Father.transform.position, Father.transform.rotation); // TODO coords
-        newIcon.transform.parent = Father.transform;
-        newIcon.GetComponent<Image>().sprite = dialogToDisplay.symbols[currentLength].sprite;
+        for(int i=0; i < messageLength; i++)
+        {
+            GameObject newIcon = Instantiate(Prefab, Father.transform.position, Father.transform.rotation); // TODO coords
+            newIcon.transform.parent = Father.transform;
+            images.Add(newIcon.GetComponent<Image>());
+            images[i].sprite = dialogToDisplay.symbols[i].sprite;
+            Color tempColor = images[i].color;
+            tempColor.a = 0f;
+            images[i].color = tempColor;
+        }
+        DisplayNewImage();
+    }
+
+    void DisplayNewImage()
+    {
+        Color tempColor = images[currentLength].color;
+        tempColor.a = 1f;
+        images[currentLength].color = tempColor;
+
         currentLength += 1;
         timer = 0.0f;
     }
