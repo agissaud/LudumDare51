@@ -26,7 +26,11 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Update() {
+
+    }
+    
+    void FixedUpdate()
     {
         if(isMoving) {
             detectArrival();
