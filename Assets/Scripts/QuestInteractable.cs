@@ -10,12 +10,14 @@ public class QuestInteractable : Interactable
     {
         if (this.availableQuest != null && this.availableQuest.Active)
         {
-            // Showw quest dialog
+            // Show quest dialog
+            DialogManager.Instance.PopUp(this.availableQuest.Data.dialog);
             this.availableQuest.Validate();
         }
         else
         {
             // Show default dialog
+            DialogManager.Instance.PopUp(this.defaultDialog);
         }
     }
 }

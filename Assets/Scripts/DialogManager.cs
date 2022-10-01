@@ -7,6 +7,7 @@ using System;
 
 public class DialogManager : MonoBehaviour
 {
+    public static DialogManager Instance { get; private set; }
     // false = no pop up, true = pop up on
     private bool state = false;
 
@@ -21,21 +22,32 @@ public class DialogManager : MonoBehaviour
     public GameObject Prefab;
     public GameObject Father;
 
+    public float writingTime;
+    private float timer;
+
+    private List<Image> images;
+
     public Item a;
     public Item b;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+        this.gameObject.SetActive(false);
         //PopUp(txtToDisplay);
-        Dialog d = new Dialog();
-        List<Item> symbols = new List<Item>();
-        symbols.Add(a);
-        symbols.Add(b);
-        symbols.Add(b);
-        symbols.Add(b);
-        d.symbols = symbols;
-        PopUp(d);
+        //Dialog d = new Dialog();
+        //List<Item> symbols = new List<Item>();
+        //symbols.Add(a);
+        //symbols.Add(b);
+        //symbols.Add(b);
+        //symbols.Add(b);
+        //d.symbols = symbols;
+        //PopUp(d);
     }
 
     // Update is called once per frame
@@ -49,21 +61,31 @@ public class DialogManager : MonoBehaviour
             }
             else if (currentLength < messageLength)
             {
-                GameObject newIcon = Instantiate(Prefab, Father.transform.position, Father.transform.rotation); // TODO coords
-                newIcon.transform.parent = Father.transform;
-                newIcon.GetComponent<Image>().sprite = dialogToDisplay.symbols[currentLength].sprite;
-                currentLength += 1;
+                if (timer < writingTime)
+                {
+                    // Wait before writing
+                    timer += Time.deltaTime;
+                }
+                else
+                {
+                    // Write a new icon
+                    DisplayNewImage();
+                }
             }
         }
     }
 
-    void PopUp(Dialog dialog)
+    public void PopUp(Dialog dialog)
     {
         this.gameObject.SetActive(true);
 
         currentLength = 0;
         messageLength = dialog.symbols.Count;
         dialogToDisplay = dialog;
+
+        images = new List<Image>();
+
+        WriteImages();
 
         state = true;
     }
@@ -79,6 +101,31 @@ public class DialogManager : MonoBehaviour
             GameObject.Destroy(child.gameObject);
         }
         Debug.Log("Pressed primary button.");
+    }
+
+    void WriteImages()
+    {
+        for(int i=0; i < messageLength; i++)
+        {
+            GameObject newIcon = Instantiate(Prefab, Father.transform.position, Father.transform.rotation); // TODO coords
+            newIcon.transform.parent = Father.transform;
+            images.Add(newIcon.GetComponent<Image>());
+            images[i].sprite = dialogToDisplay.symbols[i].sprite;
+            Color tempColor = images[i].color;
+            tempColor.a = 0f;
+            images[i].color = tempColor;
+        }
+        DisplayNewImage();
+    }
+
+    void DisplayNewImage()
+    {
+        Color tempColor = images[currentLength].color;
+        tempColor.a = 1f;
+        images[currentLength].color = tempColor;
+
+        currentLength += 1;
+        timer = 0.0f;
     }
 }
 
