@@ -461,7 +461,7 @@ TextureImporter:
         width: 16
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -469,6 +469,48 @@ TextureImporter:
       bones: []
       spriteID: 113e6e8d4bf183543922c08f503f6199
       internalID: 1955761931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: classroom_furniture_17
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 784
+        width: 28
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0.27272728}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa0e839763ec27e4382dc0fac7bfaf15
+      internalID: -1394081194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: classroom_furniture_18
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 829
+        width: 14
+        height: 23
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6086956}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbce29b7e0288d54b80fcefac15b73b5
+      internalID: 1328189761
       vertices: []
       indices: 
       edges: []
@@ -491,7 +533,9 @@ TextureImporter:
       classroom_furniture_14: -575266666
       classroom_furniture_16: 1955761931
       classroom_furniture_10: 584589723
+      classroom_furniture_17: -609779126
       classroom_furniture_3: 1861055920
+      classroom_furniture_18: -1394081194
       classroom_furniture_1: -1776867045
       classroom_furniture_5: -1539057713
       classroom_furniture_2: 1419980170
