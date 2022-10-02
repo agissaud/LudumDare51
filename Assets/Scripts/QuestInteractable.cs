@@ -17,8 +17,11 @@ public class QuestInteractable : Interactable
         }
         else
         {
-            // Show default dialog
-            DialogManager.Instance.PopUp(this.defaultDialog());
+            if (defaultDialogs.Count != 0)
+            {
+                // Show default dialog
+                DialogManager.Instance.PopUp(this.defaultDialog());
+            }
         }
     }
 
