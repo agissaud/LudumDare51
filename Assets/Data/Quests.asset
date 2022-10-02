@@ -24,9 +24,20 @@ MonoBehaviour:
     - targetType: 2
       dialog:
         symbols:
-        - {fileID: 11400000, guid: 81b27c2cd4d6b9d4b993f6a0d9ab83e6, type: 2}
-        - {fileID: 11400000, guid: 81b27c2cd4d6b9d4b993f6a0d9ab83e6, type: 2}
-        - {fileID: 11400000, guid: 81b27c2cd4d6b9d4b993f6a0d9ab83e6, type: 2}
-        - {fileID: 11400000, guid: 81b27c2cd4d6b9d4b993f6a0d9ab83e6, type: 2}
+        - {fileID: 11400000, guid: bcce9ee96359ce94e8fdc8f28564a885, type: 2}
+        - {fileID: 11400000, guid: aa7eb7687339c8144b949185d99a4f53, type: 2}
+        - {fileID: 11400000, guid: 3b5c2163b08a5404e9f7b05472d43d1e, type: 2}
+        - {fileID: 11400000, guid: 016b4cfaf381b26469e2e04ddf85ea96, type: 2}
+        - {fileID: 11400000, guid: e0de151a42000eb4d8ded36a64e13ab3, type: 2}
+        - {fileID: 11400000, guid: b60676d32cff4864db9d9e9cc33ce7d7, type: 2}
+        - {fileID: 11400000, guid: a08a049cd5646064a8e817b07fd0830c, type: 2}
+        - {fileID: 11400000, guid: cda447b10cfa53f4e92036a22ff219a2, type: 2}
+        - {fileID: 11400000, guid: 959d27fbbed460c49a6927ea59e5aee8, type: 2}
+        - {fileID: 11400000, guid: fccb4b49f0c594b4e9cde2177f05e894, type: 2}
+        - {fileID: 11400000, guid: 06867e6c374ed3e4fa2712c7a5be269e, type: 2}
+        - {fileID: 11400000, guid: d476ec8c08871a64788e683cb1307b90, type: 2}
+        - {fileID: 11400000, guid: 08a4de213712d8943af67169a34cecbe, type: 2}
+        - {fileID: 11400000, guid: 5595032879127cd4ca481ecd0fc87ad4, type: 2}
+        - {fileID: 11400000, guid: 186a9060d58a3ca40a9c241d2f82193d, type: 2}
       requiredItem: {fileID: 0}
       rewardedItem: {fileID: 0}

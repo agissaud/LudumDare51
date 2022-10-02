@@ -5,37 +5,84 @@ using TMPro;
 
 public class QuestPC : QuestInteractable
 {
-    
-    public float timer = 10.0f;
-    private bool started;
-    private bool wait = false;
-    private TextMeshPro textTimer;
-
     public int numberOfActionToComplete = 6;
-    private int nomberOfActionCompleted = 0;
-
-    public void ChangeState() 
-    {
-        wait = !wait;
-    }
+    public Item folderItem;
+    public Item errorItem;
+    private int numberOfActionCompleted = 0;
+    private Item nextAction;
+    private bool notFinished = true;
 
     // Update is called once per frame
     void Update()
     {
-        timer -= Time.deltaTime;
-        CloseDialog();
+        if (notFinished) 
+        {
+            if (Input.GetKeyDown(nextAction.sprite.name))
+            {
+                numberOfActionCompleted++;
+                NewNextAction();
+            }/* else if (Input.GetMouseButton(0) || Input.GetMouseButton(1) || Input.GetMouseButton(2))
+            {
+                ResetQuest();
+            }*/
+            else if (Input.anyKey)
+            {
+                ResetQuest();            
+                Error();
+            }
+
+
+            if(numberOfActionCompleted == numberOfActionToComplete)
+            {
+                Finish();
+            }
+        }
+        
     }
 
-    void CloseDialog()
+    void Finish()
     {
-
+        notFinished = false;
+    }
+     
+    void ResetQuest()
+    {
+        numberOfActionCompleted = 0;
     }
 
-    void DisplayTime()
+    void Error()
     {
-        int minutes = Mathf.FloorToInt(timer / 60.0f);
-        int seconds = Mathf.FloorToInt(timer - minutes * 60);
-        textTimer.SetText(string.Format("{0:00}:{1:00}:{2:00}", 0, minutes, seconds));
+        // Show dialog
+        DialogManager.Instance.PopUp(errorItem);
+    }
+
+    void NewNextAction()
+    {
+        int actionIndex = Random.Range(0, defaultDialog.symbols.Count);
+        nextAction = defaultDialog.symbols[actionIndex];
+        // Show dialog
+        DialogManager.Instance.PopUp(nextAction);
+    }
+
+    void ShowCompleted()
+    {
+        // Show dialog
+        DialogManager.Instance.PopUp(folderItem);
     }
     
+    public override void OnPlayerStartInteraction()
+    {
+        if (notFinished) 
+        {
+            ShowCompleted();
+        } else 
+        {
+            NewNextAction();
+        }
+    }
+
+    public override void OnPlayerStopInteraction()
+    {
+        ResetQuest();
+    }
 }
