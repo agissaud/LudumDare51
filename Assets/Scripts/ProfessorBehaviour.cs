@@ -59,11 +59,11 @@ public class ProfessorBehaviour : MonoBehaviour
     }
 
     private void gameOver() {
-        Debug.Log("HEY WHAT ARE YOU DOING STEP STUDENT ?");
         // TODO : FINIR LE JEU
         if(!isGameOverActivated) {
             // gameOver()
             // SceneManager.LoadScene("SceneAgissaud");
+            Debug.Log("HEY WHAT ARE YOU DOING STEP STUDENT ?");
             isGameOverActivated = true;
         }
     }
@@ -81,13 +81,10 @@ public class ProfessorBehaviour : MonoBehaviour
     }
 
     private void watchStance() {
-        Debug.Log("Je Watch");
-        // CHANGER VISUELLEMENT POUR MONTRER QUE L ON WATCH
         animator.SetBool("isWatching", true);
     }
 
     private void unwatchStance() {
-        Debug.Log("Je Watch plus");
         animator.SetBool("isWatching", false);
     }
 }
