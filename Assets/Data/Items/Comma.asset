@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc3849b1db71d1342b997d102b84bcc4, type: 3}
-  m_Name: Coma
+  m_Name: Comma
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 3bedd6490e1b98f4c820dd7a1c36a991, type: 3}
