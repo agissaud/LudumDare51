@@ -10,6 +10,14 @@ public class PlayerMovement : MonoBehaviour
 
     public float arrivalDetectionThreshold;
 
+    public bool isYeeted;
+
+    public float yeetedRotationSpeed;
+
+    public float yeetedEjectionSpeed;
+
+    private Transform spriteTransform;
+
     private NavMeshAgent navMeshAgent;
 
     public bool isMoving {get; private set;}
@@ -20,6 +28,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        spriteTransform = transform.Find("Sprite");
+        isYeeted = false;
         navMeshAgent = GetComponent<NavMeshAgent>();
         playerInteractionScript = GetComponent<PlayerInteraction>();
         isMoving = false;
@@ -34,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-
+        
     }
 
     void FixedUpdate()
@@ -43,12 +53,17 @@ public class PlayerMovement : MonoBehaviour
             detectArrival();
             updateDirection();
         }
+        if(isYeeted) {
+            spriteTransform.Rotate(new Vector3(0, 0, yeetedRotationSpeed));
+            spriteTransform.position += new Vector3(yeetedEjectionSpeed, 0, 0);
+        }
     }
 
     public void moveToDestionation(Interactable goal) {
         this.goal = goal;
         navMeshAgent.destination = goal.transform.position;
         setIsMoving(true);
+        navMeshAgent.isStopped = false;
         animator.SetBool("isSitted", false);;
     }
 
@@ -78,6 +93,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void onArrival() {
         setIsMoving(false);
+        navMeshAgent.isStopped = true;
         playerInteractionScript.OnNavidationTargetReached(this.goal);
     }
 

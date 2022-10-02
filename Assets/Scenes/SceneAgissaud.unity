@@ -391,5 +391,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClassRoom
       objectReference: {fileID: 0}
+    - target: {fileID: 4081881432952080405, guid: 46b5ffc13c9450e428d29a8ce371e84f, type: 3}
+      propertyPath: yeetedEjectionSpeed
+      value: -0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081881432952080405, guid: 46b5ffc13c9450e428d29a8ce371e84f, type: 3}
+      propertyPath: yeetedRotationSpeed
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46b5ffc13c9450e428d29a8ce371e84f, type: 3}
