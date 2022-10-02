@@ -22,8 +22,10 @@ public class DialogManager : MonoBehaviour
     public GameObject Prefab;
     public GameObject Father;
 
-    public float writingTime;
+    public float writingTime; //Time to display an icon
+    public float waitingTime; //Time before first message appearance
     private float timer;
+    private bool waiting = true;
 
     private List<Image> images;
 
@@ -38,16 +40,16 @@ public class DialogManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.gameObject.SetActive(false);
+        //this.gameObject.SetActive(false);
         //PopUp(txtToDisplay);
-        //Dialog d = new Dialog();
-        //List<Item> symbols = new List<Item>();
-        //symbols.Add(a);
-        //symbols.Add(b);
-        //symbols.Add(b);
-        //symbols.Add(b);
-        //d.symbols = symbols;
-        //PopUp(d);
+        Dialog d = new Dialog();
+        List<Item> symbols = new List<Item>();
+        symbols.Add(a);
+        symbols.Add(b);
+        symbols.Add(b);
+        symbols.Add(b);
+        d.symbols = symbols;
+        PopUp(d);
     }
 
     // Update is called once per frame
@@ -56,21 +58,51 @@ public class DialogManager : MonoBehaviour
         if (state)
         {
             if (Input.GetMouseButtonDown(0))
+            // If click -> finito
             {
                 RemovePopUp();
             }
-            else if (currentLength < messageLength)
+            timer += Time.deltaTime;
+            if (!waiting) 
+            // Act
             {
-                if (timer < writingTime)
+                
+                if (currentLength <= messageLength)
                 {
-                    // Wait before writing
-                    timer += Time.deltaTime;
+                    if (timer < writingTime)
+                    {
+                        // Increases alpha according to time spend since last update
+                        Color tempColor = images[currentLength].color;
+                        tempColor.a += timer / writingTime;
+                        if (tempColor.a > 1f)
+                        {
+                            tempColor.a = 1f;
+                        }
+                        images[currentLength].color = tempColor;
+                    }
+                    else
+                    {
+                        // Set last icon alpha to 1
+                        Color tempColor = images[currentLength].color;
+                        tempColor.a = 1f;
+                        images[currentLength].color = tempColor;
+
+                        // Reset parameters
+                        currentLength += 1;
+                        timer = 0.0f;
+                    }
                 }
-                else
-                {
-                    // Write a new icon
-                    DisplayNewImage();
-                }
+            }
+            else if (timer > waitingTime)
+            // Finish waiting
+            {
+                // Reset timer and stop waiting
+                timer = timer - waitingTime;
+                waiting = false;
+                // Initialize display
+                Color tempColor = images[currentLength].color;
+                tempColor.a += timer / writingTime;
+                images[currentLength].color = tempColor;
             }
         }
     }
@@ -88,11 +120,13 @@ public class DialogManager : MonoBehaviour
         WriteImages();
 
         state = true;
+        waiting = true;
     }
 
     void RemovePopUp()
     {
         state = false;
+        waiting = false;
         this.gameObject.SetActive(false);
 
         // Destroy children !!! OMG !!
@@ -107,7 +141,7 @@ public class DialogManager : MonoBehaviour
     {
         for(int i=0; i < messageLength; i++)
         {
-            GameObject newIcon = Instantiate(Prefab, Father.transform.position, Father.transform.rotation); // TODO coords
+            GameObject newIcon = Instantiate(Prefab, Father.transform.position, Father.transform.rotation);
             newIcon.transform.parent = Father.transform;
             images.Add(newIcon.GetComponent<Image>());
             images[i].sprite = dialogToDisplay.symbols[i].sprite;
@@ -115,17 +149,6 @@ public class DialogManager : MonoBehaviour
             tempColor.a = 0f;
             images[i].color = tempColor;
         }
-        DisplayNewImage();
-    }
-
-    void DisplayNewImage()
-    {
-        Color tempColor = images[currentLength].color;
-        tempColor.a = 1f;
-        images[currentLength].color = tempColor;
-
-        currentLength += 1;
-        timer = 0.0f;
     }
 }
 
