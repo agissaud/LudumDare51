@@ -155,6 +155,16 @@ public class DialogManager : MonoBehaviour
             GameObject.Destroy(child.gameObject);
         }
     }
+
+    public void ShowDialog(Item item)
+    {
+        Dialog dialog = new Dialog();
+        List<Item> s = new List<Item>();
+        s.Add(item);
+        dialog.symbols = s;
+        RemovePopUp();
+        PopUp(dialog);
+    }
 }
 
 

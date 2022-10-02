@@ -104,8 +104,7 @@ MonoBehaviour:
   watchingTime: 2
   playerMovement: {fileID: 0}
   playerSitting: {fileID: 0}
-  watchingSprite: {fileID: -1487289804, guid: abb276c134543f042b6aa8058e609c18, type: 3}
-  notWatchingSprite: {fileID: 89653410, guid: 8b79063f13f6b3e41b34e32d57f17626, type: 3}
+  speechItem: {fileID: 11400000, guid: 35a6c9d8d0f901540ace322d71e4570a, type: 2}
 --- !u!95 &7005563032430789776
 Animator:
   serializedVersion: 4
@@ -170,3 +169,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8946360ace4b9194cb8f47dc378226b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arrivalDetectionDistance: 0.25
