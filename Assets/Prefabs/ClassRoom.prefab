@@ -2393,7 +2393,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4081881432490748788}
-  - component: {fileID: 4081881432490748789}
   - component: {fileID: 4081881432490748778}
   - component: {fileID: 5788791257369610051}
   m_Layer: 0
@@ -2418,21 +2417,6 @@ Transform:
   m_Father: {fileID: 4081881431547594628}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4081881432490748789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4081881432490748791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1550bc180b869d4ebc92fc80030e1d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetType: 1
-  defaultDialog:
-    symbols: []
 --- !u!65 &4081881432490748778
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3183,7 +3167,7 @@ PrefabInstance:
     - target: {fileID: 2094816408787326643, guid: ed2c05644b2a78e45bcf7475f6fa8d86, type: 3}
       propertyPath: playerSitting
       value: 
-      objectReference: {fileID: 4081881432490748789}
+      objectReference: {fileID: 0}
     - target: {fileID: 2094816408787326643, guid: ed2c05644b2a78e45bcf7475f6fa8d86, type: 3}
       propertyPath: playerMovement
       value: 
