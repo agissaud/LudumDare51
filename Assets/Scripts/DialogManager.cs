@@ -42,14 +42,14 @@ public class DialogManager : MonoBehaviour
     {
         //this.gameObject.SetActive(false);
         //PopUp(txtToDisplay);
-        Dialog d = new Dialog();
-        List<Item> symbols = new List<Item>();
-        symbols.Add(a);
-        symbols.Add(b);
-        symbols.Add(b);
-        symbols.Add(b);
-        d.symbols = symbols;
-        PopUp(d);
+        //Dialog d = new Dialog();
+        //List<Item> symbols = new List<Item>();
+        //symbols.Add(a);
+        //symbols.Add(b);
+        //symbols.Add(b);
+        //symbols.Add(b);
+        //d.symbols = symbols;
+        //PopUp(d);
     }
 
     // Update is called once per frame
