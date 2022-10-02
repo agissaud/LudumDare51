@@ -17,6 +17,6 @@ public abstract class Interactable : MonoBehaviour
 
     public abstract void OnPlayerStartInteraction();
 
-    public void OnPlayerStopInteraction()
+    public virtual void OnPlayerStopInteraction()
     { }
 }

@@ -12,31 +12,36 @@ public class QuestPC : QuestInteractable
     private Item nextAction;
     private bool notFinished = true;
 
+
+    void Start () 
+    {
+        NewNextAction();
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (notFinished) 
+        /*if (notFinished) 
         {
             if (Input.GetKeyDown(nextAction.sprite.name))
             {
                 numberOfActionCompleted++;
                 NewNextAction();
-            }/* else if (Input.GetMouseButton(0) || Input.GetMouseButton(1) || Input.GetMouseButton(2))
+            } else if (Input.GetMouseButton(0) || Input.GetMouseButton(1) || Input.GetMouseButton(2))
             {
                 ResetQuest();
-            }*/
+            }
             else if (Input.anyKey)
             {
                 ResetQuest();            
                 Error();
             }
 
-
             if(numberOfActionCompleted == numberOfActionToComplete)
             {
                 Finish();
             }
-        }
+        }*/
         
     }
 
@@ -53,21 +58,21 @@ public class QuestPC : QuestInteractable
     void Error()
     {
         // Show dialog
-        DialogManager.Instance.PopUp(errorItem);
+        DialogManager.Instance.PopUp(null);
     }
 
     void NewNextAction()
     {
-        int actionIndex = Random.Range(0, defaultDialog.symbols.Count);
-        nextAction = defaultDialog.symbols[actionIndex];
+        int actionIndex = Random.Range(0, defaultDialogs[0].symbols.Count);
+        nextAction = defaultDialogs[0].symbols[actionIndex];
         // Show dialog
-        DialogManager.Instance.PopUp(nextAction);
+        //DialogManager.Instance.PopUp(null);
     }
 
     void ShowCompleted()
     {
         // Show dialog
-        DialogManager.Instance.PopUp(folderItem);
+        DialogManager.Instance.PopUp(null);
     }
     
     public override void OnPlayerStartInteraction()
