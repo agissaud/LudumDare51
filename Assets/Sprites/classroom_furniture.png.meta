@@ -452,6 +452,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: classroom_furniture_16
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 1353
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 113e6e8d4bf183543922c08f503f6199
+      internalID: 1955761931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -468,6 +489,7 @@ TextureImporter:
       classroom_furniture_11: 385161535
       classroom_furniture_12: 1526050605
       classroom_furniture_14: -575266666
+      classroom_furniture_16: 1955761931
       classroom_furniture_10: 584589723
       classroom_furniture_3: 1861055920
       classroom_furniture_1: -1776867045
