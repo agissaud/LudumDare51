@@ -20,3 +20,10 @@ MonoBehaviour:
         - {fileID: 11400000, guid: 81b27c2cd4d6b9d4b993f6a0d9ab83e6, type: 2}
       requiredItem: {fileID: 0}
       rewardedItem: {fileID: 0}
+  - parts:
+    - targetType: 1
+      dialog:
+        symbols:
+        - {fileID: 11400000, guid: 81b27c2cd4d6b9d4b993f6a0d9ab83e6, type: 2}
+      requiredItem: {fileID: 0}
+      rewardedItem: {fileID: 0}

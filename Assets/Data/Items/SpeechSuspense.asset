@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc3849b1db71d1342b997d102b84bcc4, type: 3}
-  m_Name: Map
+  m_Name: SpeechSuspense
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 42c8df489650fe84cb5dbb85bf36e287, type: 3}
+  sprite: {fileID: 1399103290, guid: 7023a6f808d3eff4ea2b60a2d3a96520, type: 3}

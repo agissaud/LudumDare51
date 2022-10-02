@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class QuestInteractable : Interactable
 {
     public ObjectType targetType;
-    public Dialog defaultDialog;
+    public List<Dialog> defaultDialogs;
     public QuestPartInstance availableQuest = null;
 
     public override void OnPlayerStartInteraction()
@@ -17,8 +18,15 @@ public class QuestInteractable : Interactable
         else
         {
             // Show default dialog
-            DialogManager.Instance.PopUp(this.defaultDialog);
+            DialogManager.Instance.PopUp(this.defaultDialog());
         }
+    }
+
+    private Dialog defaultDialog()
+    {
+        int nbDialog = defaultDialogs.Count;
+        int selected = Random.Range(0, nbDialog);
+        return defaultDialogs[selected];
     }
 }
 
