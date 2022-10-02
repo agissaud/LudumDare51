@@ -320,7 +320,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7559258126077497494, guid: d77d18f840ff92e4094820e97beb220a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d77d18f840ff92e4094820e97beb220a, type: 3}
@@ -343,6 +343,10 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1792145968364845744, guid: 46b5ffc13c9450e428d29a8ce371e84f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dfe20b1b0c0cdc84aab87557eda14178, type: 2}
     - target: {fileID: 4081881431547594628, guid: 46b5ffc13c9450e428d29a8ce371e84f, type: 3}
       propertyPath: m_RootOrder
       value: 1
