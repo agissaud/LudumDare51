@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc3849b1db71d1342b997d102b84bcc4, type: 3}
-  m_Name: K
+  m_Name: Hash
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 64b39966f099182418ee8a11a26021f8, type: 3}
+  sprite: {fileID: 21300000, guid: 2b8eac02fa328e14b88a070f02aa15c4, type: 3}

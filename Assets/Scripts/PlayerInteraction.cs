@@ -64,7 +64,6 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (i == this.currentInteraction && !this.interacting)
         {
-            Debug.Log("hijhhihh");
             this.currentInteraction.OnPlayerStartInteraction();
             this.interacting = true;
         }

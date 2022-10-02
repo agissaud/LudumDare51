@@ -129,11 +129,8 @@ public class DialogManager : MonoBehaviour
         waiting = false;
         this.gameObject.SetActive(false);
 
-        // Destroy children !!! OMG !!
-        foreach (Transform child in Father.transform)
-        {
-            GameObject.Destroy(child.gameObject);
-        }
+        ClearMessage();
+
         Debug.Log("Pressed primary button.");
     }
 
@@ -147,6 +144,15 @@ public class DialogManager : MonoBehaviour
             Color tempColor = images[i].color;
             tempColor.a = 0f;
             images[i].color = tempColor;
+        }
+    }
+
+    public void ClearMessage()
+    {
+        // Destroy children !!! OMG !!
+        foreach (Transform child in Father.transform)
+        {
+            GameObject.Destroy(child.gameObject);
         }
     }
 }

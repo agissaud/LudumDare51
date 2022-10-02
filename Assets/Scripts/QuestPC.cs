@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+ using UnityEngine.EventSystems;
 
 public class QuestPC : QuestInteractable
 {
@@ -11,6 +12,14 @@ public class QuestPC : QuestInteractable
     private int numberOfActionCompleted = 0;
     private Item nextAction;
     private bool notFinished = true;
+    private bool interacting = false;
+    private bool holdingDown = false;
+
+    private bool error = false;
+    public float timerError = 0.0f;
+
+    private bool shift = false;
+    private bool altgr = false;
 
 
     void Start () 
@@ -21,35 +30,92 @@ public class QuestPC : QuestInteractable
     // Update is called once per frame
     void Update()
     {
-        /*
-        if (notFinished) 
+        if (notFinished && interacting) 
         {
-            Debug.Log(KeyCode.Comma);
-            if (Input.GetKeyDown((KeyCode)System.Enum.Parse(typeof(KeyCode), nextAction.name)))
+            if (Input.GetKeyDown((KeyCode)System.Enum.Parse(typeof(KeyCode), nextAction.name)) && !holdingDown)
             {
-                numberOfActionCompleted++;
-                NewNextAction();
+                GoodKey();
             } else if (Input.GetMouseButton(0) || Input.GetMouseButton(1) || Input.GetMouseButton(2))
             {
-                //ResetQuest();
-            }
-            else if (Input.anyKey)
+                holdingDown = true;
+                ResetQuest();
+            } else if(Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
+            {                
+                holdingDown = true;
+                shift = true;
+                
+            } else if(Input.GetKeyDown(KeyCode.AltGr))
+            {                
+                holdingDown = true;
+                altgr = true;
+                
+            } else if (shift && nextAction.name == "Quote")
             {
-                //ResetQuest();            
-                //Error();
+                if (Input.GetKeyDown((KeyCode)System.Enum.Parse(typeof(KeyCode), "Alpha4")))
+                {
+                    GoodKey();    
+                }      
+            } else if (altgr && nextAction.name == "Hash")
+            {
+                if ( Input.GetKeyDown((KeyCode)System.Enum.Parse(typeof(KeyCode), "Alpha3")))
+                {
+                    GoodKey();    
+                }                    
+            }
+            
+            else if (Input.anyKey && !holdingDown)
+            {
+                WrongKey();
+            }
+            
+            if (!Input.anyKey && holdingDown) {
+                holdingDown = false;
+                altgr = false;
+                shift = false;
+            }
+
+            if (error)
+            {
+                timerError += Time.deltaTime;
+            }
+
+            if (timerError >= 1.0f) 
+            {
+                timerError = 0.0f;
+                error = false;
+                Debug.Log("Quit PC");
+                DialogManager.Instance.RemovePopUp();
             }
 
             if(numberOfActionCompleted == numberOfActionToComplete)
             {
                 Finish();
             }
-        }*/
+        }
         
+    }
+
+    void GoodKey() 
+    {
+        holdingDown = true;
+        numberOfActionCompleted++;
+        NewNextAction();
+        Debug.Log("good KEY");
+    }
+
+    void WrongKey()
+    {
+        holdingDown = true;
+        error = true;
+        Debug.Log("Wrong KEY");         
+        Error();
     }
 
     void Finish()
     {
         notFinished = false;
+        Debug.Log("FINISHED QUEST PC");
+        ShowCompleted();
     }
      
     void ResetQuest()
@@ -60,7 +126,7 @@ public class QuestPC : QuestInteractable
     void Error()
     {
         // Show dialog
-        DialogManager.Instance.PopUp(null);
+        ShowDialog(errorItem);
     }
 
     void NewNextAction()
@@ -68,14 +134,14 @@ public class QuestPC : QuestInteractable
         int actionIndex = Random.Range(0, defaultDialogs[0].symbols.Count);
         nextAction = defaultDialogs[0].symbols[actionIndex];
         // Show dialog
+        ShowDialog(nextAction);
         
-        DialogManager.Instance.PopUp(NewDialog(nextAction));
     }
 
     void ShowCompleted()
     {
         // Show dialog
-        DialogManager.Instance.PopUp(null);
+        ShowDialog(folderItem);
     }
     
     public override void OnPlayerStartInteraction()
@@ -83,6 +149,7 @@ public class QuestPC : QuestInteractable
         if (notFinished) 
         {
             NewNextAction();
+            interacting = true;
         } else 
         {
             ShowCompleted();
@@ -94,14 +161,15 @@ public class QuestPC : QuestInteractable
         ResetQuest();
     }
 
-    Dialog NewDialog(Item item)
+    void ShowDialog(Item item)
     {
         Dialog dialog = new Dialog();
         List<Item> s = new List<Item>();
         s.Add(item);
         dialog.symbols = s;
         Debug.Log(dialog.symbols[0].name);
-        return dialog;
+        DialogManager.Instance.ClearMessage();
+        DialogManager.Instance.PopUp(dialog);
     }
 
 }
