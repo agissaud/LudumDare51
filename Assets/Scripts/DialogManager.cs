@@ -67,7 +67,7 @@ public class DialogManager : MonoBehaviour
             // Act
             {
                 
-                if (currentLength <= messageLength)
+                if (currentLength < messageLength)
                 {
                     if (timer < writingTime)
                     {
