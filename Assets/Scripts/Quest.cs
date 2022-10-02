@@ -11,7 +11,8 @@ public class Quest
 public enum ObjectType
 {
     CHARACTER,
-    GLOBE
+    GLOBE,
+    PC
 }
 
 [Serializable]
