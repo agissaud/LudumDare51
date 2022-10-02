@@ -5,7 +5,8 @@ using System;
 [Serializable]
 public class Quest
 {
-    public List<QuestPart> parts;
+    public string text = "";
+    public List<QuestPart> parts = new List<QuestPart>();
 }
 
 public enum ObjectType
@@ -26,13 +27,19 @@ public class QuestPart
 
 public class QuestInstance
 {
+    private QuestManager manager;
+    private int index;
     private Quest data;
     private int progress = 0;
 
-    public QuestInstance(Quest data)
+    public QuestInstance(QuestManager manager, int index, Quest data)
     {
+        this.manager = manager;
+        this.index = index;
         this.data = data;
     }
+
+    public Quest Data => this.data;
 
     public bool Complete => this.progress >= this.data.parts.Count;
 
@@ -45,6 +52,10 @@ public class QuestInstance
         if (this.progress == partIndex)
         {
             this.progress++;
+            if (this.Complete)
+            {
+                this.manager.OnQuestValidated(this.index);
+            }
         }
     }
 }

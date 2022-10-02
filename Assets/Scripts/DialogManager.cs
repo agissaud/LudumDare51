@@ -138,8 +138,7 @@ public class DialogManager : MonoBehaviour
     {
         for(int i=0; i < messageLength; i++)
         {
-            GameObject newIcon = Instantiate(Prefab, Father.transform.position, Father.transform.rotation);
-            newIcon.transform.parent = Father.transform;
+            GameObject newIcon = Instantiate(Prefab, Father.transform.position, Father.transform.rotation, Father.transform);
             images.Add(newIcon.GetComponent<Image>());
             images[i].sprite = dialogToDisplay.symbols[i].sprite;
             Color tempColor = images[i].color;

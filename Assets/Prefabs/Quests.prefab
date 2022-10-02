@@ -395,10 +395,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1ac852c03f6cd7468f4debcd31d8161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questList:
-  - lel
-  - lol
+  questManager: {fileID: 0}
   QuestPrefab: {fileID: 8464276748399073524, guid: 6659ad074e91d544680e5ad449c9e91e, type: 3}
+  questListObject: {fileID: 9175660948668545941}
 --- !u!1 &9175660950109307347
 GameObject:
   m_ObjectHideFlags: 0

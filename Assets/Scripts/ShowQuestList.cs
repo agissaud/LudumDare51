@@ -6,38 +6,37 @@ using TMPro;
 
 public class ShowQuestList : MonoBehaviour
 {
-    public string[] questList;
+    public QuestManager questManager;
     public GameObject QuestPrefab;
-    private GameObject questListObject;
+    public GameObject questListObject;
     private Text text;
     private GameObject[] questions;
 
     // Start is called before the first frame update
     void Start()
     {
-        questListObject = GameObject.Find("QuestList"); 
+        if (questListObject == null)
+            questListObject = GameObject.Find("QuestList"); 
+
         if (questListObject != null) 
         {
             Debug.Log("hehe");
         }
 
-        questions = new GameObject[questList.Length];
-        float questionsSize = 100 / questList.Length;
+        // Register for quest completion event
+        questManager.OnQuestCompleted += TaskCleared;
+
+        questions = new GameObject[questManager.QuestInstances.Count];
+        float questionsSize = 100 / questManager.QuestInstances.Count;
 
         for(int i = 0; i < questions.Length; i++) 
         {
             GameObject question = Instantiate(QuestPrefab, questListObject.transform);
             question.name = "Q"+i;
             RectTransform questionTransform = question.GetComponent<RectTransform>();
-            questionTransform.Find("Content").gameObject.GetComponent<TextMeshProUGUI>().SetText("Question n°" + (i+1) + ": " + questList[i]);
+            questionTransform.Find("Content").gameObject.GetComponent<TextMeshProUGUI>().SetText("Question n°" + (i+1) + ": " + questManager.QuestInstances[i].Data.text);
             questions[i] = question;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void TaskCleared(int taskNumber) 

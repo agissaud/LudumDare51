@@ -1,10 +1,11 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public abstract class Interactable : MonoBehaviour
+public abstract class Interactable : MonoBehaviour, IPointerDownHandler
 {
     public float arrivalDetectionDistance = 0.25f;
 
-    private void OnMouseDown()
+    public void OnPointerDown(PointerEventData eventData)
     {
         PlayerInteraction.INSTANCE.StartInteraction(this);
     }
