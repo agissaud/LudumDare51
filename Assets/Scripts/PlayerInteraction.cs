@@ -5,7 +5,7 @@ public class PlayerInteraction : MonoBehaviour
     public static PlayerInteraction INSTANCE { get; private set; } = null;
     private Interactable currentInteraction = null;
     private bool interacting = false;
-    private PlayerMovement playerMovement;
+    public PlayerMovement PlayerMovement { get; private set; }
 
     private void Awake()
     {
@@ -14,7 +14,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Start()
     {
-        playerMovement = GetComponent<PlayerMovement>();
+        PlayerMovement = GetComponent<PlayerMovement>();
     }
 
     public void StartInteraction(Interactable i)
@@ -25,7 +25,7 @@ public class PlayerInteraction : MonoBehaviour
         StopInteraction();
         this.currentInteraction = i;
         this.interacting = false;
-        this.playerMovement.moveToDestionation(this.currentInteraction);
+        this.PlayerMovement.moveToDestionation(this.currentInteraction);
         this.currentInteraction.OnNavigationStarted();
     }
 
