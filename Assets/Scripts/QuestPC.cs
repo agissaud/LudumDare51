@@ -21,20 +21,22 @@ public class QuestPC : QuestInteractable
     // Update is called once per frame
     void Update()
     {
-        /*if (notFinished) 
+        /*
+        if (notFinished) 
         {
-            if (Input.GetKeyDown(nextAction.sprite.name))
+            Debug.Log(KeyCode.Comma);
+            if (Input.GetKeyDown((KeyCode)System.Enum.Parse(typeof(KeyCode), nextAction.name)))
             {
                 numberOfActionCompleted++;
                 NewNextAction();
             } else if (Input.GetMouseButton(0) || Input.GetMouseButton(1) || Input.GetMouseButton(2))
             {
-                ResetQuest();
+                //ResetQuest();
             }
             else if (Input.anyKey)
             {
-                ResetQuest();            
-                Error();
+                //ResetQuest();            
+                //Error();
             }
 
             if(numberOfActionCompleted == numberOfActionToComplete)
@@ -66,7 +68,8 @@ public class QuestPC : QuestInteractable
         int actionIndex = Random.Range(0, defaultDialogs[0].symbols.Count);
         nextAction = defaultDialogs[0].symbols[actionIndex];
         // Show dialog
-        //DialogManager.Instance.PopUp(null);
+        
+        DialogManager.Instance.PopUp(NewDialog(nextAction));
     }
 
     void ShowCompleted()
@@ -79,10 +82,10 @@ public class QuestPC : QuestInteractable
     {
         if (notFinished) 
         {
-            ShowCompleted();
+            NewNextAction();
         } else 
         {
-            NewNextAction();
+            ShowCompleted();
         }
     }
 
@@ -90,4 +93,15 @@ public class QuestPC : QuestInteractable
     {
         ResetQuest();
     }
+
+    Dialog NewDialog(Item item)
+    {
+        Dialog dialog = new Dialog();
+        List<Item> s = new List<Item>();
+        s.Add(item);
+        dialog.symbols = s;
+        Debug.Log(dialog.symbols[0].name);
+        return dialog;
+    }
+
 }
