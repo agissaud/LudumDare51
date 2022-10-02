@@ -176,6 +176,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goal: {fileID: 0}
   arrivalDetectionThreshold: 0.5
+  isYeeted: 0
+  yeetedRotationSpeed: 0
+  yeetedEjectionSpeed: 0
 --- !u!114 &3993461675225409081
 MonoBehaviour:
   m_ObjectHideFlags: 0
