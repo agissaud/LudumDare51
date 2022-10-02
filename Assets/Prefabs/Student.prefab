@@ -160,7 +160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1550bc180b869d4ebc92fc80030e1d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrivalDetectionDistance: 1
+  arrivalDetectionDistance: 0.75
   targetType: 0
-  defaultDialog:
-    symbols: []
+  defaultDialogs: []

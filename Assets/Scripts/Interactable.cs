@@ -9,14 +9,14 @@ public abstract class Interactable : MonoBehaviour
         PlayerInteraction.INSTANCE.StartInteraction(this);
     }
 
-    public void OnNavigationStarted()
+    public virtual void OnNavigationStarted()
     { }
 
-    public void OnNavigationInterupted()
+    public virtual void OnNavigationInterupted()
     { }
 
     public abstract void OnPlayerStartInteraction();
 
-    public void OnPlayerStopInteraction()
+    public virtual void OnPlayerStopInteraction()
     { }
 }

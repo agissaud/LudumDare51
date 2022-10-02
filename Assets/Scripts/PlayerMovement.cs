@@ -62,9 +62,14 @@ public class PlayerMovement : MonoBehaviour
     public void moveToDestionation(Interactable goal) {
         this.goal = goal;
         navMeshAgent.destination = goal.transform.position;
+        if (goal.arrivalDetectionDistance > 0.3)
+        {
+            Vector3 vectorDir = (this.transform.position - goal.transform.position).normalized;
+            navMeshAgent.destination = goal.transform.position + vectorDir * 0.01f;
+        }
         setIsMoving(true);
         navMeshAgent.isStopped = false;
-        animator.SetBool("isSitted", false);;
+        animator.SetBool("isSitted", false);
     }
 
     private void updateDirection() {
