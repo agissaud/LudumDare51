@@ -63,7 +63,7 @@ public class ClockManager : MonoBehaviour
 
         if (timer <= 0.0f) 
         {
-            Exterminate();
+            Exterminate(false);
         }
     }
 
@@ -74,7 +74,7 @@ public class ClockManager : MonoBehaviour
         textTimer.SetText(string.Format("{0:00}:{1:00}:{2:00}", 0, minutes, seconds));
     }
 
-    void Exterminate() 
+    public void Exterminate(bool isLost) 
     {
         Debug.Log("BOOOOOM !");
     }

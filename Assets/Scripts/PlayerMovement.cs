@@ -73,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
             spriteTransform.Rotate(new Vector3(0, 0, yeetedRotationSpeed));
             spriteTransform.position += new Vector3(yeetedEjectionSpeed, 0, 0);
             if(spriteTransform.position.magnitude > distanceBeforeReload) {
-                SceneManager.LoadScene("SceneAgissaud");
+                ClockManager.Instance.Exterminate(true);
             }
         }
     }
