@@ -23,11 +23,14 @@ public class ProfessorBehaviour : MonoBehaviour
 
     private bool isGameOverActivated;
 
+    private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
         isWatching = true;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
         spriteRenderer.sprite = this.watchingSprite;
         isGameOverActivated = false;
     }
@@ -80,11 +83,11 @@ public class ProfessorBehaviour : MonoBehaviour
     private void watchStance() {
         Debug.Log("Je Watch");
         // CHANGER VISUELLEMENT POUR MONTRER QUE L ON WATCH
-        spriteRenderer.sprite = this.watchingSprite;
+        animator.SetBool("isWatching", true);
     }
 
     private void unwatchStance() {
         Debug.Log("Je Watch plus");
-        spriteRenderer.sprite = this.notWatchingSprite;
+        animator.SetBool("isWatching", false);
     }
 }

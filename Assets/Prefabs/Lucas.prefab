@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2094816408787326641}
   - component: {fileID: 2094816408787326640}
   - component: {fileID: 2094816408787326643}
+  - component: {fileID: 7005563032430789776}
   m_Layer: 0
   m_Name: Lucas
   m_TagString: Untagged
@@ -103,3 +104,23 @@ MonoBehaviour:
   playerSitting: {fileID: 0}
   watchingSprite: {fileID: -1487289804, guid: abb276c134543f042b6aa8058e609c18, type: 3}
   notWatchingSprite: {fileID: 89653410, guid: 8b79063f13f6b3e41b34e32d57f17626, type: 3}
+--- !u!95 &7005563032430789776
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094816408787326642}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c68dfad0ace480d4ca0ff12b9c6fe28d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
