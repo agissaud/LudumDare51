@@ -26,6 +26,7 @@ public class PlayerInteraction : MonoBehaviour
         this.currentInteraction = i;
         this.interacting = false;
         this.PlayerMovement.moveToDestionation(this.currentInteraction);
+        this.PlayerMovement.arrivalDetectionThreshold = this.currentInteraction.arrivalDetectionDistance;
         this.currentInteraction.OnNavigationStarted();
     }
 
