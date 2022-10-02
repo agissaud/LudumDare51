@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class ProfessorBehaviour : MonoBehaviour
+public class ProfessorBehaviour : Interactable
 {
     public float notWatchingTime;
 
@@ -33,6 +32,7 @@ public class ProfessorBehaviour : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer.sprite = this.watchingSprite;
         isGameOverActivated = false;
+        animator.SetBool("isAngry", false);
     }
 
     // Update is called once per frame
@@ -59,13 +59,18 @@ public class ProfessorBehaviour : MonoBehaviour
     }
 
     private void gameOver() {
-        // TODO : FINIR LE JEU
         if(!isGameOverActivated) {
-            // gameOver()
-            // SceneManager.LoadScene("SceneAgissaud");
             Debug.Log("HEY WHAT ARE YOU DOING STEP STUDENT ?");
             isGameOverActivated = true;
+            TellPlayerToComeThenKillHim();
+            DialogManager.Instance.RemovePopUp();
+            PlayerInteraction.INSTANCE.isStopped = true;
+            ClockManager.isTimeStopped = true;
         }
+    }
+
+    private void TellPlayerToComeThenKillHim() {
+        playerMovement.playerInteractionScript.StartInteraction(GetComponentInChildren<PlayerExecutionPlace>());
     }
 
     private void watch() {
@@ -86,5 +91,16 @@ public class ProfessorBehaviour : MonoBehaviour
 
     private void unwatchStance() {
         animator.SetBool("isWatching", false);
+    }
+
+    public override void OnNavigationStarted() {
+        Debug.Log("JE TE VOIS");
+        animator.SetBool("isAwakening", true);
+    }
+
+    public override void OnPlayerStartInteraction() {
+        Debug.Log("YOU DEAD");
+        animator.SetBool("isAngry", true);
+        playerMovement.killByYeet();
     }
 }

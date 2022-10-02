@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using System;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,6 +12,12 @@ public class PlayerMovement : MonoBehaviour
     public float arrivalDetectionThreshold;
 
     public bool isYeeted;
+
+    public bool isMouShindeiru;
+
+    private float timerBeforeYeeted;
+
+    public float delayBeforeYeeted;
 
     public float yeetedRotationSpeed;
 
@@ -22,12 +29,15 @@ public class PlayerMovement : MonoBehaviour
 
     public bool isMoving {get; private set;}
 
-    private PlayerInteraction playerInteractionScript;
+    public float distanceBeforeReload;
+
+    public PlayerInteraction playerInteractionScript {get; private set;}
 
     private Animator animator;
 
     void Start()
     {
+        isMouShindeiru = false;
         spriteTransform = transform.Find("Sprite");
         isYeeted = false;
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -53,10 +63,29 @@ public class PlayerMovement : MonoBehaviour
             detectArrival();
             updateDirection();
         }
+        if(isMouShindeiru && !isYeeted) {
+            timerBeforeYeeted += Time.deltaTime;
+            if(timerBeforeYeeted > delayBeforeYeeted) {
+                yeet();
+            }
+        }
         if(isYeeted) {
             spriteTransform.Rotate(new Vector3(0, 0, yeetedRotationSpeed));
             spriteTransform.position += new Vector3(yeetedEjectionSpeed, 0, 0);
+            if(spriteTransform.position.magnitude > distanceBeforeReload) {
+                SceneManager.LoadScene("SceneAgissaud");
+            }
         }
+    }
+
+    public void killByYeet() {
+        timerBeforeYeeted = 0;
+        isMouShindeiru = true;
+        animator.SetTrigger("MouShindeiru");
+    }
+
+    private void yeet() {
+        isYeeted = true;
     }
 
     public void moveToDestionation(Interactable goal) {

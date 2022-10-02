@@ -6,6 +6,7 @@ public class PlayerInteraction : MonoBehaviour
     private Interactable currentInteraction = null;
     private bool interacting = false;
     public PlayerMovement PlayerMovement { get; private set; }
+    public bool isStopped;
 
     private void Awake()
     {
@@ -14,11 +15,15 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Start()
     {
+        isStopped = false;
         PlayerMovement = GetComponent<PlayerMovement>();
     }
 
     public void StartInteraction(Interactable i)
     {
+        if(isStopped) {
+            return;
+        }
         if (this.currentInteraction == i)
             return;
 

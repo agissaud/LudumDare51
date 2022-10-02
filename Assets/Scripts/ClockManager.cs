@@ -5,12 +5,21 @@ using TMPro;
 
 public class ClockManager : MonoBehaviour
 {
+    public static ClockManager Instance { get; private set; }
+
     public float timer = 300.0f;
     public ProfessorBehaviour professor;
     private float watching = 0.0f;
     private bool wait = false;
     private bool isWatching = true;
     private TextMeshPro textTimer;
+    public static bool isTimeStopped {get; set;}
+
+    private void Awake()
+    {
+        Instance = this;
+        isTimeStopped = false;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +31,10 @@ public class ClockManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
+        if(isTimeStopped) {
+            return;
+        }
+
         if(wait && ((int)timer) % ((int)professor.notWatchingTime) == 0 && watching <= professor.watchingTime) 
         {
             watching += Time.deltaTime;

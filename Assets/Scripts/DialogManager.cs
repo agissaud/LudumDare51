@@ -123,7 +123,7 @@ public class DialogManager : MonoBehaviour
         waiting = true;
     }
 
-    void RemovePopUp()
+    public void RemovePopUp()
     {
         state = false;
         waiting = false;

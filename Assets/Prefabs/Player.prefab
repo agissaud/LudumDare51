@@ -177,8 +177,11 @@ MonoBehaviour:
   goal: {fileID: 0}
   arrivalDetectionThreshold: 0.5
   isYeeted: 0
-  yeetedRotationSpeed: 0
-  yeetedEjectionSpeed: 0
+  isMouShindeiru: 0
+  delayBeforeYeeted: 2.5
+  yeetedRotationSpeed: 16
+  yeetedEjectionSpeed: -0.3
+  distanceBeforeReload: 25
 --- !u!114 &3993461675225409081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,3 +194,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ccc724d630ba8f44b7fec121218692a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStopped: 0
