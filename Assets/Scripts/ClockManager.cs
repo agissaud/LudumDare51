@@ -77,5 +77,9 @@ public class ClockManager : MonoBehaviour
     public void Exterminate(bool isLost) 
     {
         Debug.Log("BOOOOOM !");
+
+        // Pour charger une nouvelle scene :
+        // using UnityEngine.SceneManagement;
+        // puis SceneManager.load("SceneName");
     }
 }
