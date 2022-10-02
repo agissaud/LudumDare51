@@ -32,7 +32,7 @@ public class QuestPC : QuestInteractable
     {
         if (notFinished && interacting) 
         {
-            if (Input.GetKeyDown((KeyCode)System.Enum.Parse(typeof(KeyCode), nextAction.name)) && !holdingDown)
+            if (Input.GetKeyDown(System.Enum.Parse<KeyCode>(nextAction.name)) && !holdingDown)
             {
                 GoodKey();
             } else if (Input.GetMouseButton(0) || Input.GetMouseButton(1) || Input.GetMouseButton(2))
@@ -51,13 +51,13 @@ public class QuestPC : QuestInteractable
                 
             } else if (shift && nextAction.name == "Quote")
             {
-                if (Input.GetKeyDown((KeyCode)System.Enum.Parse(typeof(KeyCode), "Alpha4")))
+                if (Input.GetKeyDown(System.Enum.Parse<KeyCode>("Alpha4")))
                 {
                     GoodKey();    
                 }      
             } else if (altgr && nextAction.name == "Hash")
             {
-                if ( Input.GetKeyDown((KeyCode)System.Enum.Parse(typeof(KeyCode), "Alpha3")))
+                if ( Input.GetKeyDown(System.Enum.Parse<KeyCode>("Alpha3")))
                 {
                     GoodKey();    
                 }                    
