@@ -3711,6 +3711,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 4081881431547594628}
     m_Modifications:
     - target: {fileID: 2502798575363622125, guid: 427fa246d0b32f643ba0f38909a4bb27, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 7559258126077497494, guid: d77d18f840ff92e4094820e97beb220a, type: 3}
+    - target: {fileID: 2502798575363622125, guid: 427fa246d0b32f643ba0f38909a4bb27, type: 3}
       propertyPath: professor
       value: 
       objectReference: {fileID: 2717792520481937925}
