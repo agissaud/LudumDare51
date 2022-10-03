@@ -53,5 +53,8 @@ public class ShowQuestList : MonoBehaviour
     {
         int calculateGrade = ((int)(20/questions.Length)) * numberOfTaskCleared;
         grade.GetComponent<TextMeshProUGUI>().SetText(calculateGrade + "/20");
+        if (numberOfTaskCleared == questions.Length) {
+            ClockManager.Instance.Exterminate(false);
+        }
     }
 }
