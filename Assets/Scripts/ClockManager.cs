@@ -15,6 +15,8 @@ public class ClockManager : MonoBehaviour
     private TextMeshPro textTimer;
     public static bool isTimeStopped {get; set;}
 
+    public GameObject canvas;
+
     private void Awake()
     {
         Instance = this;
@@ -76,7 +78,14 @@ public class ClockManager : MonoBehaviour
 
     public void Exterminate(bool isLost) 
     {
-        Debug.Log("BOOOOOM !");
+        Debug.Log("THIS IS THE END !");
+        Time.timeScale = 0;
+        isTimeStopped = true;
+        GameObject examen = canvas.GetComponent<RectTransform>().GetChild(0).gameObject;
+        examen.SetActive(false);
+        canvas.GetComponent<RectTransform>().GetChild(1).gameObject.SetActive(false);
+        canvas.GetComponent<RectTransform>().GetChild(2).gameObject.GetComponent<EndManager>().ActiveEnding(!isLost, examen);
+        
 
         // Pour charger une nouvelle scene :
         // using UnityEngine.SceneManagement;
