@@ -131,11 +131,14 @@ public class QuestPC : QuestInteractable
 
     void NewNextAction()
     {
-        int actionIndex = Random.Range(0, defaultDialogs[0].symbols.Count);
-        nextAction = defaultDialogs[0].symbols[actionIndex];
+        Item previousAction = nextAction;
+        do {
+            int actionIndex = Random.Range(0, defaultDialogs[0].symbols.Count);
+            nextAction = defaultDialogs[0].symbols[actionIndex];
+        } while (previousAction.name == nextAction.name);
+
         // Show dialog
         ShowDialog(nextAction);
-        
     }
 
     void ShowCompleted()
