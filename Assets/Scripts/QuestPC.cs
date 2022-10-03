@@ -115,6 +115,7 @@ public class QuestPC : QuestInteractable
     {
         notFinished = false;
         Debug.Log("FINISHED QUEST PC");
+        availableQuests[0].Validate();
         ShowCompleted();
     }
      
