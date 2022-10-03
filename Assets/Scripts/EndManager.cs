@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using TMPro;
 
 public class EndManager : MonoBehaviour
@@ -31,11 +32,12 @@ public class EndManager : MonoBehaviour
             
             for (int i=0; i < childs.Count; i++) {
                 Debug.Log("moving object: " + childs[i].name);
-                childs[i].SetParent(questListTarget.transform, false);
+                childs[i].SetParent(questListTarget.GetComponent<RectTransform>(), false);
                 winScreen.SetActive(true);  
             }
 
             UpdateGrade();
+            LayoutRebuilder.ForceRebuildLayoutImmediate(questListTarget.GetComponent<RectTransform>());
         }
 
     }
