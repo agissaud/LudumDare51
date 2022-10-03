@@ -15,15 +15,21 @@ MonoBehaviour:
   quests:
   - text: Sandwich
     parts:
-    - targetType: 0
+    - targetType: 4
       dialog:
         symbols:
         - {fileID: 11400000, guid: 59838d17baf7bc94da4fb15d92c039f3, type: 2}
+        - {fileID: 11400000, guid: b89084b0f3710214ea0a6ef992d3356d, type: 2}
         - {fileID: 11400000, guid: 81b27c2cd4d6b9d4b993f6a0d9ab83e6, type: 2}
-    - targetType: 0
+    - targetType: 5
       dialog:
         symbols:
-        - {fileID: 11400000, guid: 59838d17baf7bc94da4fb15d92c039f3, type: 2}
+        - {fileID: 11400000, guid: 02d381c0564dbb5478b6653827e9a7fe, type: 2}
+        - {fileID: 11400000, guid: 81b27c2cd4d6b9d4b993f6a0d9ab83e6, type: 2}
+    - targetType: 4
+      dialog:
+        symbols:
+        - {fileID: 11400000, guid: f5b9818bfea561f468d8477a97e0fccd, type: 2}
         - {fileID: 11400000, guid: 81b27c2cd4d6b9d4b993f6a0d9ab83e6, type: 2}
   - text: Globe
     parts:

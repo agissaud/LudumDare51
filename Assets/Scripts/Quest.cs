@@ -14,7 +14,9 @@ public enum ObjectType
     CHARACTER,
     GLOBE,
     PC,
-    NONE
+    NONE,
+    SANDWICH1,
+    SANDWICH2
 }
 
 [Serializable]

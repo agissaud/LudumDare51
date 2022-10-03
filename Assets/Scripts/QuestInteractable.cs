@@ -1,27 +1,31 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 public class QuestInteractable : Interactable
 {
     public ObjectType targetType;
+    public int maxQuestAssigned = 1;
     public List<Dialog> defaultDialogs;
-    public QuestPartInstance availableQuest = null;
+    public List<QuestPartInstance> availableQuests = new List<QuestPartInstance>();
 
     public override void OnPlayerStartInteraction()
     {
-        if (this.availableQuest != null && this.availableQuest.Active)
+        foreach (QuestPartInstance qi in availableQuests)
         {
-            // Show quest dialog
-            DialogManager.Instance.PopUp(this.availableQuest.Data.dialog);
-            this.availableQuest.Validate();
-        }
-        else
-        {
-            if (defaultDialogs.Count != 0)
+            if (qi.Active)
             {
-                // Show default dialog
-                DialogManager.Instance.PopUp(this.defaultDialog());
+                // Show quest dialog
+                DialogManager.Instance.PopUp(qi.Data.dialog);
+                qi.Validate();
+                return;
             }
+        }
+
+        if (defaultDialogs.Count != 0)
+        {
+            // Show default dialog
+            DialogManager.Instance.PopUp(this.defaultDialog());
         }
     }
 
