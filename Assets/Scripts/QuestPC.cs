@@ -24,7 +24,6 @@ public class QuestPC : QuestInteractable
 
     void Start () 
     {
-        NewNextAction();
     }
 
     // Update is called once per frame
