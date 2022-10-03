@@ -231,6 +231,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 613142598971109827, guid: d77d18f840ff92e4094820e97beb220a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2940070963997052916, guid: d77d18f840ff92e4094820e97beb220a, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -247,7 +251,15 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4120980092169089311, guid: d77d18f840ff92e4094820e97beb220a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4962847799405058669, guid: d77d18f840ff92e4094820e97beb220a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698948661804686769, guid: d77d18f840ff92e4094820e97beb220a, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -361,6 +373,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d77d18f840ff92e4094820e97beb220a, type: 3}
+--- !u!1 &670990676 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7559258126077497494, guid: d77d18f840ff92e4094820e97beb220a, type: 3}
+  m_PrefabInstance: {fileID: 139494484}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1238748986 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2765555629531674391, guid: 46b5ffc13c9450e428d29a8ce371e84f, type: 3}
@@ -459,6 +476,10 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1792145966970416181, guid: 46b5ffc13c9450e428d29a8ce371e84f, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 670990676}
     - target: {fileID: 1792145968364845744, guid: 46b5ffc13c9450e428d29a8ce371e84f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

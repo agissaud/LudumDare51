@@ -172,7 +172,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 06867e6c374ed3e4fa2712c7a5be269e, type: 2}
     - {fileID: 11400000, guid: 08a4de213712d8943af67169a34cecbe, type: 2}
     - {fileID: 11400000, guid: 186a9060d58a3ca40a9c241d2f82193d, type: 2}
-    - {fileID: 11400000, guid: aa7eb7687339c8144b949185d99a4f53, type: 2}
   numberOfActionToComplete: 4
   folderItem: {fileID: 11400000, guid: 6659d279054c0b940ab0a62b8d7da16a, type: 2}
   errorItem: {fileID: 11400000, guid: 99e8754566a82a8469f99ea47156c05b, type: 2}

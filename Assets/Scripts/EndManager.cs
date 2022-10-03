@@ -35,7 +35,7 @@ public class EndManager : MonoBehaviour
                 childs[i].SetParent(questListTarget.GetComponent<RectTransform>(), false);
                 winScreen.SetActive(true);  
             }
-
+    
             UpdateGrade();
             //LayoutRebuilder.ForceRebuildLayoutImmediate(questListTarget.GetComponent<RectTransform>());
         }
