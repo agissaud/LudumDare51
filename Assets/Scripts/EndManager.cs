@@ -16,9 +16,9 @@ public class EndManager : MonoBehaviour
 
     public void ActiveEnding(bool isLost, GameObject examen)
     {
-        background.gameObject.SetActive(true);
+        background.SetActive(true);
         if (isLost) {
-            loseScreen.gameObject.SetActive(true);    
+            loseScreen.SetActive(true);    
         } else {
             GameObject questListSource = examen.transform.Find("QuestList").gameObject;
             GameObject questListTarget = winScreen.transform.Find("QuestList").gameObject;
