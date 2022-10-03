@@ -36,8 +36,11 @@ public class QuestManager : MonoBehaviour
                     if (targetPerType.TryGetValue(qp.targetType, out validTargets) && validTargets.Count > 0)
                     {
                         int chosen = Random.Range(0, validTargets.Count);
-                        validTargets[chosen].availableQuest = new QuestPartInstance(qi, i);
-                        validTargets.RemoveAt(chosen);
+                        validTargets[chosen].availableQuests.Insert(0, new QuestPartInstance(qi, i));
+                        if (validTargets[chosen].availableQuests.Count >= validTargets[chosen].maxQuestAssigned)
+                        {
+                            validTargets.RemoveAt(chosen);
+                        }
                     }
                     else
                     {
@@ -50,6 +53,6 @@ public class QuestManager : MonoBehaviour
 
     public void OnQuestValidated(int questIndex)
     {
-        OnQuestCompleted(questIndex);
+        OnQuestCompleted?.Invoke(questIndex);
     }
 }
