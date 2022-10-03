@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Animator animator;
 
-    void Start()
+    void Awake()
     {
         isMouShindeiru = false;
         spriteTransform = transform.Find("Sprite");
@@ -44,6 +44,10 @@ public class PlayerMovement : MonoBehaviour
         playerInteractionScript = GetComponent<PlayerInteraction>();
         isMoving = false;
         animator = GetComponentInChildren<Animator>();
+    }
+
+    void Start()
+    {
         setIsMoving(false);
         animator.SetBool("isSitted", true);
         animator.SetInteger("direction", 0);

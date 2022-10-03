@@ -11,10 +11,6 @@ public class PlayerInteraction : MonoBehaviour
     private void Awake()
     {
         INSTANCE = this;
-    }
-
-    private void Start()
-    {
         isStopped = false;
         PlayerMovement = GetComponent<PlayerMovement>();
     }
