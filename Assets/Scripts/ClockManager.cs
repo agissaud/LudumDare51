@@ -11,7 +11,7 @@ public class ClockManager : MonoBehaviour
     public ProfessorBehaviour professor;
     private float watching = 0.0f;
     private bool wait = false;
-    private bool isWatching = true;
+    private bool isWatching = false;
     private TextMeshPro textTimer;
     public static bool isTimeStopped {get; set;}
 
