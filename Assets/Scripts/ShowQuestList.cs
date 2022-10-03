@@ -9,8 +9,11 @@ public class ShowQuestList : MonoBehaviour
     public QuestManager questManager;
     public GameObject QuestPrefab;
     public GameObject questListObject;
+    public GameObject grade;
     private Text text;
     private GameObject[] questions;
+
+    private int numberOfTaskCleared = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +44,14 @@ public class ShowQuestList : MonoBehaviour
 
     void TaskCleared(int taskNumber) 
     {
+        numberOfTaskCleared++;
         questions[taskNumber].GetComponent<RectTransform>().Find("Checkmark").gameObject.SetActive(true);
+        UpdateGrade();
+    }
+
+    void UpdateGrade()
+    {
+        int calculateGrade = ((int)(20/questions.Length)) * numberOfTaskCleared;
+        grade.GetComponent<TextMeshProUGUI>().SetText(calculateGrade + "/20");
     }
 }

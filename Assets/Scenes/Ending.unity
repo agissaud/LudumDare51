@@ -231,10 +231,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 613142598971109827, guid: d77d18f840ff92e4094820e97beb220a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2940070963997052916, guid: d77d18f840ff92e4094820e97beb220a, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -255,10 +251,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4962847799405058669, guid: d77d18f840ff92e4094820e97beb220a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 7559258126046014805, guid: d77d18f840ff92e4094820e97beb220a, type: 3}
+      propertyPath: grade
+      value: 
+      objectReference: {fileID: 745107361}
     - target: {fileID: 7559258126046014805, guid: d77d18f840ff92e4094820e97beb220a, type: 3}
       propertyPath: questManager
       value: 
@@ -363,8 +359,29 @@ PrefabInstance:
       propertyPath: m_ChildControlHeight
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9105084425591474653, guid: d77d18f840ff92e4094820e97beb220a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 520.2252
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105084425591474653, guid: d77d18f840ff92e4094820e97beb220a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 36.2185
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105084425591474653, guid: d77d18f840ff92e4094820e97beb220a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -14.873798
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105084425591474653, guid: d77d18f840ff92e4094820e97beb220a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -132.10925
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d77d18f840ff92e4094820e97beb220a, type: 3}
+--- !u!1 &745107361 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7559258126081560454, guid: d77d18f840ff92e4094820e97beb220a, type: 3}
+  m_PrefabInstance: {fileID: 139494484}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1238748986 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2765555629531674391, guid: 46b5ffc13c9450e428d29a8ce371e84f, type: 3}
@@ -376,14 +393,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a85833d78aaa57428eb22dbedbcdc2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1367625111 stripped
+--- !u!1 &1365795616 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7559258126077497494, guid: d77d18f840ff92e4094820e97beb220a, type: 3}
-  m_PrefabInstance: {fileID: 139494484}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1617509901 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4120980092169089311, guid: d77d18f840ff92e4094820e97beb220a, type: 3}
   m_PrefabInstance: {fileID: 139494484}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1693121204
@@ -474,21 +486,9 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1792145966970416181, guid: 46b5ffc13c9450e428d29a8ce371e84f, type: 3}
-      propertyPath: timer
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1792145966970416181, guid: 46b5ffc13c9450e428d29a8ce371e84f, type: 3}
       propertyPath: canvas
       value: 
-      objectReference: {fileID: 1367625111}
-    - target: {fileID: 1792145966970416181, guid: 46b5ffc13c9450e428d29a8ce371e84f, type: 3}
-      propertyPath: endScreen
-      value: 
-      objectReference: {fileID: 1617509901}
-    - target: {fileID: 1792145966970416181, guid: 46b5ffc13c9450e428d29a8ce371e84f, type: 3}
-      propertyPath: winScreen
-      value: 
-      objectReference: {fileID: 1367625111}
+      objectReference: {fileID: 1365795616}
     - target: {fileID: 1792145968364845744, guid: 46b5ffc13c9450e428d29a8ce371e84f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

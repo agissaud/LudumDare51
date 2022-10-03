@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class EndManager : MonoBehaviour
 {
     public GameObject winScreen;
     public GameObject loseScreen;
     public GameObject background;
+
+    private int childNumber = 0;
+    private int childFinished = 0;
 
     public void ActiveEnding(bool isLost, GameObject examen)
     {
@@ -18,8 +22,10 @@ public class EndManager : MonoBehaviour
             GameObject questListSource = examen.transform.Find("QuestList").gameObject;
             GameObject questListTarget = winScreen.transform.Find("QuestList").gameObject;
             List<Transform> childs = new List<Transform>();
-            for (int i=0; i < questListSource.transform.childCount; i++) {
+            childNumber = questListSource.transform.childCount;
+            for (int i=0; i < childNumber; i++) {
                 Transform child = questListSource.transform.GetChild(i);
+                childFinished += child.GetComponent<RectTransform>().Find("Checkmark").gameObject.activeSelf ? 1 : 0;
                 childs.Add(child);
             }
             
@@ -28,6 +34,8 @@ public class EndManager : MonoBehaviour
                 childs[i].SetParent(questListTarget.transform, false);
                 winScreen.SetActive(true);  
             }
+
+            UpdateGrade();
         }
 
     }
@@ -36,5 +44,11 @@ public class EndManager : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    void UpdateGrade()
+    {
+        int calculateGrade = ((int)(20/childNumber)) * childFinished;
+        winScreen.GetComponent<RectTransform>().Find("Grade").gameObject.GetComponent<TextMeshProUGUI>().SetText(calculateGrade + "/20");
     }
 }
