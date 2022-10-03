@@ -13,16 +13,17 @@ public enum ObjectType
 {
     CHARACTER,
     GLOBE,
-    PC
+    PC,
+    NONE
 }
 
 [Serializable]
 public class QuestPart
 {
-    public ObjectType targetType;
+    public ObjectType targetType = ObjectType.CHARACTER;
     public Dialog dialog;
-    public Item requiredItem;
-    public Item rewardedItem;
+    //public Item requiredItem;
+    //public Item rewardedItem;
 }
 
 public class QuestInstance

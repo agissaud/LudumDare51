@@ -27,6 +27,11 @@ public class QuestManager : MonoBehaviour
                 for (int i = 0; i < q.parts.Count; i++)
                 {
                     QuestPart qp = q.parts[i];
+                    if (qp.targetType == ObjectType.NONE)
+                    {
+                        continue;
+                    }
+
                     List<QuestInteractable> validTargets;
                     if (targetPerType.TryGetValue(qp.targetType, out validTargets) && validTargets.Count > 0)
                     {

@@ -18,23 +18,24 @@ MonoBehaviour:
     - targetType: 0
       dialog:
         symbols:
+        - {fileID: 11400000, guid: 59838d17baf7bc94da4fb15d92c039f3, type: 2}
         - {fileID: 11400000, guid: 81b27c2cd4d6b9d4b993f6a0d9ab83e6, type: 2}
-      requiredItem: {fileID: 0}
-      rewardedItem: {fileID: 0}
+    - targetType: 0
+      dialog:
+        symbols:
+        - {fileID: 11400000, guid: 59838d17baf7bc94da4fb15d92c039f3, type: 2}
+        - {fileID: 11400000, guid: 81b27c2cd4d6b9d4b993f6a0d9ab83e6, type: 2}
   - text: Globe
     parts:
     - targetType: 1
       dialog:
         symbols:
-        - {fileID: 11400000, guid: 81b27c2cd4d6b9d4b993f6a0d9ab83e6, type: 2}
-      requiredItem: {fileID: 0}
-      rewardedItem: {fileID: 0}
-  - parts:
+        - {fileID: 11400000, guid: d9cce483e6a6bae4c96a8dd5bcbd9e06, type: 2}
+  - text: 
+    parts:
     - targetType: 2
       dialog:
         symbols:
         - {fileID: 11400000, guid: bcce9ee96359ce94e8fdc8f28564a885, type: 2}
         - {fileID: 11400000, guid: aa7eb7687339c8144b949185d99a4f53, type: 2}
         - {fileID: 11400000, guid: 3b5c2163b08a5404e9f7b05472d43d1e, type: 2}
-      requiredItem: {fileID: 0}
-      rewardedItem: {fileID: 0}

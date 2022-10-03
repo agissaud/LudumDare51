@@ -12,9 +12,7 @@ public class ProfessorBehaviour : Interactable
 
     public Interactable playerSitting;
 
-    public Sprite watchingSprite;
-
-    public Sprite notWatchingSprite;
+    public Item speechItem;
 
     private bool isWatching;
 
@@ -30,7 +28,6 @@ public class ProfessorBehaviour : Interactable
         isWatching = true;
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-        spriteRenderer.sprite = this.watchingSprite;
         isGameOverActivated = false;
         animator.SetBool("isAngry", false);
     }
@@ -101,6 +98,7 @@ public class ProfessorBehaviour : Interactable
     public override void OnPlayerStartInteraction() {
         Debug.Log("YOU DEAD");
         animator.SetBool("isAngry", true);
+        DialogManager.Instance.ShowDialog(speechItem);
         playerMovement.killByYeet();
     }
 }
