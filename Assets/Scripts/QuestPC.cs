@@ -129,13 +129,24 @@ public class QuestPC : QuestInteractable
         ShowDialog(errorItem);
     }
 
+    void RollAction()
+    {
+        int actionIndex = Random.Range(0, defaultDialogs[0].symbols.Count);
+        nextAction = defaultDialogs[0].symbols[actionIndex];
+    }
+
     void NewNextAction()
     {
-        Item previousAction = nextAction;
-        do {
-            int actionIndex = Random.Range(0, defaultDialogs[0].symbols.Count);
-            nextAction = defaultDialogs[0].symbols[actionIndex];
-        } while (previousAction.name == nextAction.name);
+        if (nextAction != null) {
+            Item previousAction = nextAction;
+            do {
+                RollAction();
+            } while (previousAction.name == nextAction.name);
+        } else
+        {
+            RollAction();
+        }
+        
 
         // Show dialog
         ShowDialog(nextAction);
