@@ -129,13 +129,27 @@ public class QuestPC : QuestInteractable
         ShowDialog(errorItem);
     }
 
-    void NewNextAction()
+    void RollAction()
     {
         int actionIndex = Random.Range(0, defaultDialogs[0].symbols.Count);
         nextAction = defaultDialogs[0].symbols[actionIndex];
+    }
+
+    void NewNextAction()
+    {
+        if (nextAction != null) {
+            Item previousAction = nextAction;
+            do {
+                RollAction();
+            } while (previousAction.name == nextAction.name);
+        } else
+        {
+            RollAction();
+        }
+        
+
         // Show dialog
         ShowDialog(nextAction);
-        
     }
 
     void ShowCompleted()

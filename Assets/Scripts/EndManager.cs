@@ -37,7 +37,7 @@ public class EndManager : MonoBehaviour
             }
 
             UpdateGrade();
-            LayoutRebuilder.ForceRebuildLayoutImmediate(questListTarget.GetComponent<RectTransform>());
+            //LayoutRebuilder.ForceRebuildLayoutImmediate(questListTarget.GetComponent<RectTransform>());
         }
 
     }
