@@ -8,6 +8,10 @@ You need a mouse and keyboard to play
 Click on an object to interact with it  
 Every 10 seconds, the teacher will look around to check that you are not cheating, don't get caught !​
 
+## Available at : 
+[itchi.io](https://lebossmax2.itch.io/chaosexam)
+[ldjam.com](https://ldjam.com/events/ludum-dare/51/$306920)
+
 ## Asset packs we used to make the game
 [Modern interiors (free version)](https://limezu.itch.io/moderninteriors)  
 [Free Pixel foods](https://ghostpixxells.itch.io/pixelfood)  
