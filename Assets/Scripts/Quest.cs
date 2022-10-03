@@ -16,7 +16,8 @@ public enum ObjectType
     PC,
     NONE,
     SANDWICH1,
-    SANDWICH2
+    SANDWICH2,
+    PLANT
 }
 
 [Serializable]

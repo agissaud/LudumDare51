@@ -45,3 +45,9 @@ MonoBehaviour:
         - {fileID: 11400000, guid: bcce9ee96359ce94e8fdc8f28564a885, type: 2}
         - {fileID: 11400000, guid: aa7eb7687339c8144b949185d99a4f53, type: 2}
         - {fileID: 11400000, guid: 3b5c2163b08a5404e9f7b05472d43d1e, type: 2}
+  - text: Ecology
+    parts:
+    - targetType: 6
+      dialog:
+        symbols:
+        - {fileID: 11400000, guid: e0de151a42000eb4d8ded36a64e13ab3, type: 2}

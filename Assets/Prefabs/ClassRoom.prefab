@@ -2938,7 +2938,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrivalDetectionDistance: 0.55
-  targetType: 3
+  targetType: 6
   maxQuestAssigned: 1
   defaultDialogs: []
 --- !u!1 &4798688401695254873
