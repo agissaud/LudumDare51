@@ -36,9 +36,14 @@ public class ClockManager : MonoBehaviour
         if(isTimeStopped) {
             return;
         }
+        
+        DisplayTime();
+
+        CheckEnd();
 
         if(wait && ((int)timer) % ((int)professor.notWatchingTime) == 0 && watching <= professor.watchingTime) 
         {
+            Debug.Log(timer);
             watching += Time.deltaTime;
             if (!isWatching) 
             {
@@ -61,13 +66,16 @@ public class ClockManager : MonoBehaviour
             timer -= Time.deltaTime;
         }
 
-        DisplayTime();
+    }
 
+    void CheckEnd()
+    {
         if (timer <= 0.0f) 
         {
             Exterminate(false);
         }
     }
+     
 
     void DisplayTime()
     {
@@ -84,7 +92,7 @@ public class ClockManager : MonoBehaviour
         GameObject examen = canvas.GetComponent<RectTransform>().GetChild(0).gameObject;
         examen.SetActive(false);
         canvas.GetComponent<RectTransform>().GetChild(1).gameObject.SetActive(false);
-        canvas.GetComponent<RectTransform>().GetChild(2).gameObject.GetComponent<EndManager>().ActiveEnding(!isLost, examen);
+        canvas.GetComponent<RectTransform>().GetChild(2).gameObject.GetComponent<EndManager>().ActiveEnding(isLost, examen);
         
 
         // Pour charger une nouvelle scene :

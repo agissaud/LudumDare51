@@ -486,6 +486,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1792145966970416181, guid: 46b5ffc13c9450e428d29a8ce371e84f, type: 3}
+      propertyPath: timer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1792145966970416181, guid: 46b5ffc13c9450e428d29a8ce371e84f, type: 3}
       propertyPath: canvas
       value: 
       objectReference: {fileID: 1365795616}
