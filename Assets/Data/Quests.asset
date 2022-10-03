@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Quests
   m_EditorClassIdentifier: 
   quests:
-  - text: Sandwich
+  - text: Social Science
     parts:
     - targetType: 4
       dialog:
@@ -31,13 +31,13 @@ MonoBehaviour:
         symbols:
         - {fileID: 11400000, guid: f5b9818bfea561f468d8477a97e0fccd, type: 2}
         - {fileID: 11400000, guid: 81b27c2cd4d6b9d4b993f6a0d9ab83e6, type: 2}
-  - text: Globe
+  - text: Geography
     parts:
     - targetType: 1
       dialog:
         symbols:
         - {fileID: 11400000, guid: d9cce483e6a6bae4c96a8dd5bcbd9e06, type: 2}
-  - text: 
+  - text: Computer Science
     parts:
     - targetType: 2
       dialog:
@@ -50,4 +50,4 @@ MonoBehaviour:
     - targetType: 6
       dialog:
         symbols:
-        - {fileID: 11400000, guid: e0de151a42000eb4d8ded36a64e13ab3, type: 2}
+        - {fileID: 11400000, guid: 8ea5111fe4fe1a345b2ee6ff56e15102, type: 2}
