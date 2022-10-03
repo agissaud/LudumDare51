@@ -43,7 +43,6 @@ public class ClockManager : MonoBehaviour
 
         if(wait && ((int)timer) % ((int)professor.notWatchingTime) == 0 && watching <= professor.watchingTime) 
         {
-            Debug.Log(timer);
             watching += Time.deltaTime;
             if (!isWatching) 
             {
