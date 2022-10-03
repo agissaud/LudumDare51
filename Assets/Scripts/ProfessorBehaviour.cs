@@ -25,7 +25,7 @@ public class ProfessorBehaviour : Interactable
     // Start is called before the first frame update
     void Start()
     {
-        isWatching = true;
+        isWatching = false;
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         isGameOverActivated = false;

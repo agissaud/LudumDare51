@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using System;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -47,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("isSitted", true);
         animator.SetInteger("direction", 0);
         if (goal is not null) {
-            moveToDestionation(goal);
+            playerInteractionScript.StartInteraction(goal);
         } 
     }
 
